@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msgs.listOfRoles}</title>
+        <h:outputStylesheet library="css" name="style.css" />
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable value="#{roleList.allRoles}" var="role" headerClass="roleHeader" rowClasses="roleEvenRow, roleOddRow" rules="all">
+                <h:column>
+                    <f:facet name="header">#{msgs.id}</f:facet>
+                    #{role.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{msgs.name}</f:facet>
+                    #{role.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{msgs.description}</f:facet>
+                    #{role.description}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{msgs.action}</f:facet>
+                    <h:commandButton value="Delete" action="#{roleList.deleteRole(role.id)}" styleClass="proceedSmallButton"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="Add new role" action="role_add" styleClass="proceedBigButton" />
+        </h:form>
+    </h:body>
+</html>
