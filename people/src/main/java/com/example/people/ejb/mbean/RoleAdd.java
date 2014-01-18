@@ -42,7 +42,7 @@ public class RoleAdd implements Serializable {
     
     public String add() {
         if (!name.isEmpty() && !description.isEmpty())
-            manager.createRole(new Role(name, description));
+            manager.createRole(name, description);
         return backToList();
     }
 

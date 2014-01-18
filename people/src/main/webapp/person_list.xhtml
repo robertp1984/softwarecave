@@ -4,30 +4,30 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>#{msgs.listOfRoles}</title>
+        <title>#{msgs.listOfPersons}</title>
         <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
         <h:form>
-            <h:dataTable value="#{roleList.allRoles}" var="role" headerClass="roleHeader" rowClasses="roleEvenRow, roleOddRow" rules="all">
+            <h:dataTable value="#{personList.allPersons}" var="person" headerClass="roleHeader" rowClasses="roleEvenRow, roleOddRow" rules="all">
                 <h:column>
                     <f:facet name="header">#{msgs.id}</f:facet>
-                    #{role.id}
+                    #{person.id}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">#{msgs.name}</f:facet>
-                    #{role.name}
+                    <f:facet name="header">#{msgs.firstName}</f:facet>
+                    #{person.firstName}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">#{msgs.description}</f:facet>
-                    #{role.description}
+                    <f:facet name="header">#{msgs.lastName}</f:facet>
+                    #{person.lastName}
                 </h:column>
                 <h:column>
                     <f:facet name="header">#{msgs.action}</f:facet>
-                    <h:commandButton value="#{msgs.delete}" action="#{roleList.deleteRole(role.id)}" styleClass="proceedSmallButton"/>
+                    <h:commandButton value="#{msgs.delete}" action="#{personList.deletePerson(person.id)}" styleClass="proceedSmallButton"/>
                 </h:column>
             </h:dataTable>
-            <h:commandButton value="#{msgs.addNewRole}" action="role_add" styleClass="proceedBigButton" />
+            <h:commandButton value="#{msgs.addNewPerson}" action="person_add" styleClass="proceedBigButton" />
         </h:form>
     </h:body>
 </html>

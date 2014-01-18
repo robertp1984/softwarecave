@@ -7,7 +7,6 @@ import java.util.Set;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 @Stateful
@@ -19,23 +18,39 @@ public class PersonRoleManagerBean implements PersonRoleManager {
     private EntityManager em;
     
     @Override
-    public void createPerson(Person person) {
-        em.persist(person);
+    public Person getPerson(int id) {
+        return em.find(Person.class, id);
     }
 
     @Override
-    public Person getPerson(int id) {
-        return em.find(Person.class, id);
+    public void createPersonWithRoles(String firstName, String lastName, int[] roleIds) {
+        Person person = new Person(firstName, lastName);
+        for (int roleId : roleIds) {
+            Role role = em.find(Role.class, roleId);
+            person.addRole(role);
+        }
+        em.persist(person);
     }
     
     @Override
     public void addPersonToRoles(Person person, Set<Role> roles) {
         person.addRoles(roles);
     }
-
+    
+    public List<Person> getAllPersons() {
+        TypedQuery<Person> query = em.createNamedQuery("findAllPerson", Person.class);
+        return query.getResultList();
+    }
+    
+    public void deletePerson(int id) {
+        Person person = em.find(Person.class, id);
+        if (person != null)
+            em.remove(person);
+    }
+    
     @Override
-    public void createRole(Role role) {
-        em.persist(role);
+    public void createRole(String name, String description) {
+        em.persist(new Role(name, description));
     }
     
     @Override

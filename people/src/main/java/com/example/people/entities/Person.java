@@ -13,10 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "PEOPLE_PERSON")
+@NamedQuery(name = "findAllPerson", query = "select o from Person o order by o.id")
 public class Person implements Serializable {
 
     private static final long serialVersionUID = -2346897234623746L;
