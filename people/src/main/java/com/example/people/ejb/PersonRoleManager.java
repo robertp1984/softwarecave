@@ -12,10 +12,10 @@ public interface PersonRoleManager extends Serializable {
     Person getPerson(int id);
     List<Person> getAllPersons();
     void deletePerson(int id);
+    void updatePerson(int id, String firstName, String lastName, int[] roleIds);
 
     void createRole(String name, String description);
     Role getRole(int id);
     List<Role> getAllRoles();
     void deleteRole(int id);
-
 }

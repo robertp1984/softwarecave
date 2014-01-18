@@ -107,4 +107,14 @@ public class Person implements Serializable {
                 && Objects.equals(roles, other.roles);
     }
 
+    public int[] getRoleIds() {
+        int[] result = new int[roles.size()];
+        int i = 0;
+        for (Role role : roles) {
+            result[i] = role.getId();
+            i++;
+        }
+        return result;
+    }
+
 }

@@ -10,14 +10,14 @@
     <h:body>
         <h:form>
             <h:panelGrid columns="2">
-                ${msgs.firstName} <h:inputText value="#{personAdd.firstName}" />
-                ${msgs.lastName} <h:inputText value="#{personAdd.lastName}" />
+                ${msgs.firstName} <h:inputText value="#{personList.firstName}" />
+                ${msgs.lastName} <h:inputText value="#{personList.lastName}" />
                 ${msgs.roles}
-                <h:selectManyCheckbox value="#{personAdd.roleIds}" layout="lineDirection">
-                    <f:selectItems value="#{personAdd.allRoleItems}" />
+                <h:selectManyCheckbox value="#{personList.roleIds}" layout="lineDirection">
+                    <f:selectItems value="#{personList.allRoleItems}" />
                 </h:selectManyCheckbox>
-                <h:commandButton action="#{personAdd.add}" value="#{msgs.add}" styleClass="proceedBigButton"/>
-                <h:commandButton action="#{personAdd.backToList}" value="#{msgs.backToList}" styleClass="proceedBigButton"/>
+                <h:commandButton action="#{personList.add}" value="#{msgs.add}" styleClass="proceedBigButton"/>
+                <h:commandButton action="#{personList.backToList}" value="#{msgs.backToList}" styleClass="proceedBigButton"/>
             </h:panelGrid>
         </h:form>
     </h:body>

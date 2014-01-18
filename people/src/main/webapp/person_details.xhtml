@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msgs.personDetails}</title>
+        <h:outputStylesheet library="css" name="style.css" />
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2" rendered="#{!personList.editing}">
+                #{msgs.firstName} <h:outputText value="#{personList.firstName}" />
+                #{msgs.lastName} <h:outputText value="#{personList.lastName}" />
+                #{msgs.roles}
+                <h:panelGroup>
+                    <c:forEach var="role" items="#{personList.roleIds}">
+                        <h:outputText value="#{role} "/>
+                    </c:forEach>
+                </h:panelGroup>
+                <h:commandButton action="#{personList.startEditing}" value="#{msgs.edit}" rendered="#{!personList.editing}" styleClass="proceedBigButton" />
+            </h:panelGrid>
+            
+            <h:panelGrid columns="2" rendered="#{personList.editing}">
+                #{msgs.firstName} <h:inputText value="#{personList.firstName}" />
+                #{msgs.lastName} <h:inputText value="#{personList.lastName}" />
+                #{msgs.roles}
+                <h:selectManyCheckbox value="#{personList.roleIds}">
+                    <f:selectItems value="#{personList.allRoleItems}" />
+                </h:selectManyCheckbox>
+                <h:commandButton action="#{personList.saveChanges}" value="#{msgs.saveChanges}" rendered="#{personList.editing}" styleClass="proceedBigButton" />
+                <h:commandButton action="#{personList.abortChanges}" value="#{msgs.abortChanges}" rendered="#{personList.editing}" styleClass="proceedBigButton" />
+            </h:panelGrid>
+            
+        </h:form>
+    </h:body>
+</html>

@@ -25,6 +25,7 @@
                 <h:column>
                     <f:facet name="header">#{msgs.action}</f:facet>
                     <h:commandButton value="#{msgs.delete}" action="#{personList.deletePerson(person.id)}" styleClass="proceedSmallButton"/>
+                    <h:commandButton value="#{msgs.details}" action="#{personList.showDetails(person.id)}" styleClass="proceedSmallButton"/>
                 </h:column>
             </h:dataTable>
             <h:commandButton value="#{msgs.addNewPerson}" action="person_add" styleClass="proceedBigButton" />
