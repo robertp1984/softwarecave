@@ -9,10 +9,12 @@
     <h:body>
         <h:form>
             <h:panelGrid columns="2">
-                ${msgs.name} <h:inputText value="#{roleAdd.name}" />
-                ${msgs.description} <h:inputText value="#{roleAdd.description}" />
-                <h:commandButton action="#{roleAdd.add}" value="#{msgs.add}" styleClass="proceedBigButton"/>
-                <h:commandButton action="#{roleAdd.backToList}" value="#{msgs.backToList}" styleClass="proceedBigButton"/>
+                ${msgs.name} <h:inputText value="#{roleList.name}" />
+                ${msgs.description} <h:inputText value="#{roleList.description}" />
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+                <h:commandButton action="#{roleList.add}" value="#{msgs.add}" styleClass="proceedBigButton"/>
+                <h:commandButton action="#{roleList.backToList}" value="#{msgs.backToList}" styleClass="proceedBigButton"/>
             </h:panelGrid>
         </h:form>
     </h:body>

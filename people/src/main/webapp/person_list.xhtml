@@ -28,7 +28,10 @@
                     <h:commandButton value="#{msgs.details}" action="#{personList.showDetails(person.id)}" styleClass="proceedSmallButton"/>
                 </h:column>
             </h:dataTable>
-            <h:commandButton value="#{msgs.addNewPerson}" action="person_add" styleClass="proceedBigButton" />
+            <h:panelGrid columns="2">
+                <h:commandButton value="#{msgs.addNewPerson}" action="person_add" styleClass="proceedBigButton" />
+                <h:commandButton value="#{msgs.seeRoles}" action="role_list" styleClass="proceedBigButton" />
+            </h:panelGrid>
         </h:form>
     </h:body>
 </html>

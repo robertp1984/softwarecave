@@ -15,11 +15,14 @@
                 #{msgs.lastName} <h:outputText value="#{personList.lastName}" />
                 #{msgs.roles}
                 <h:panelGroup>
-                    <c:forEach var="role" items="#{personList.roleIds}">
-                        <h:outputText value="#{role} "/>
+                    <c:forEach var="role" items="#{personList.roles}">
+                        <h:outputText value="#{role.name} "/>
                     </c:forEach>
                 </h:panelGroup>
+            </h:panelGrid>
+            <h:panelGrid columns="2" rendered="#{!personList.editing}">
                 <h:commandButton action="#{personList.startEditing}" value="#{msgs.edit}" rendered="#{!personList.editing}" styleClass="proceedBigButton" />
+                <h:commandButton action="person_list" value="#{msgs.backToList}" styleClass="proceedBigButton" />
             </h:panelGrid>
             
             <h:panelGrid columns="2" rendered="#{personList.editing}">
@@ -29,8 +32,10 @@
                 <h:selectManyCheckbox value="#{personList.roleIds}">
                     <f:selectItems value="#{personList.allRoleItems}" />
                 </h:selectManyCheckbox>
-                <h:commandButton action="#{personList.saveChanges}" value="#{msgs.saveChanges}" rendered="#{personList.editing}" styleClass="proceedBigButton" />
-                <h:commandButton action="#{personList.abortChanges}" value="#{msgs.abortChanges}" rendered="#{personList.editing}" styleClass="proceedBigButton" />
+            </h:panelGrid>
+            <h:panelGrid columns="2" rendered="#{personList.editing}">
+                <h:commandButton action="#{personList.saveChanges}" value="#{msgs.save}" rendered="#{personList.editing}" styleClass="proceedBigButton" />
+                <h:commandButton action="#{personList.abortChanges}" value="#{msgs.abort}" rendered="#{personList.editing}" styleClass="proceedBigButton" />
             </h:panelGrid>
             
         </h:form>

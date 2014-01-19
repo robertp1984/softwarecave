@@ -16,6 +16,8 @@
                 <h:selectManyCheckbox value="#{personList.roleIds}" layout="lineDirection">
                     <f:selectItems value="#{personList.allRoleItems}" />
                 </h:selectManyCheckbox>
+            </h:panelGrid>
+            <h:panelGrid columns="2">
                 <h:commandButton action="#{personList.add}" value="#{msgs.add}" styleClass="proceedBigButton"/>
                 <h:commandButton action="#{personList.backToList}" value="#{msgs.backToList}" styleClass="proceedBigButton"/>
             </h:panelGrid>

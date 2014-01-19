@@ -4,7 +4,9 @@ import com.example.people.ejb.PersonRoleManager;
 import com.example.people.entities.Person;
 import com.example.people.entities.Role;
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.SelectItem;
@@ -19,25 +21,24 @@ public class PersonList implements Serializable {
     @EJB
     private PersonRoleManager manager;
     
-    private int id;
     private String firstName;
     private String lastName;
     private int[] roleIds;
 
+    // details support
+    private int id;
+    private Set<Role> roles;
     private boolean editing;
 
     public PersonList() {
-        id = 0;
         firstName = "";
         lastName = "";
         roleIds = new int[0];
+        id = 0;
+        roles = Collections.emptySet();
         editing = false;
     }
 
-    public boolean isEditing() {
-        return editing;
-    }
-    
     public String getFirstName() {
         return firstName;
     }
@@ -63,17 +64,25 @@ public class PersonList implements Serializable {
     }
 
     public SelectItem[] getAllRoleItems() {
-        List<Role> roles = manager.getAllRoles();
+        List<Role> allRoles = manager.getAllRoles();
 
-        SelectItem[] result = new SelectItem[roles.size()];
+        SelectItem[] result = new SelectItem[allRoles.size()];
         int i = 0;
-        for (Role role : roles) {
+        for (Role role : allRoles) {
             result[i] = new SelectItem(role.getId(), role.getName());
             i++;
         }
         return result;
     }
     
+    public boolean isEditing() {
+        return editing;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
     public String add() {
         if (!firstName.isEmpty() && !lastName.isEmpty()) {
             manager.createPersonWithRoles(firstName, lastName, roleIds);
@@ -97,10 +106,11 @@ public class PersonList implements Serializable {
 
     public String showDetails(int id) {
         Person person = manager.getPerson(id);
-        this.id = id;
         firstName = person.getFirstName();
         lastName = person.getLastName();
         roleIds = person.getRoleIds();
+        this.id = id;
+        roles = person.getRoles();
         editing = false;
         return "person_details";
     }
@@ -117,13 +127,15 @@ public class PersonList implements Serializable {
     }
     
     public String abortChanges() {
-        editing = false;
+        showDetails(id);
         return "";
     }
 
     private void clear() {
-        editing = false;
         firstName = lastName = "";
         roleIds = new int[0];
+        id = 0;
+        roles = Collections.emptySet();
+        editing = false;
     }
 }

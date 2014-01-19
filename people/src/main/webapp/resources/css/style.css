@@ -17,20 +17,18 @@
 
 .proceedBigButton {
     font-weight: bold;
-    background-color: cornflowerblue;
+    background-color: #93b2ff;
     border-color: black;
     border-style: solid;
     border-width: 0.3mm;
-    border-radius: 2mm;
     padding: 2mm;
 }
 
 .proceedSmallButton {
     font-weight: bold;
-    background-color: cornflowerblue;
+    background-color: #93b2ff;
     border-color: black;
     border-style: solid;
     border-width: 0.3mm;
-    border-radius: 2mm;
     padding: 0.5mm;
 }

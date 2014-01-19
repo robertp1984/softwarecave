@@ -17,6 +17,41 @@ public class RoleList implements Serializable {
     @EJB
     private PersonRoleManager manager;
 
+    private String name;
+    private String description;
+
+    public RoleList() {
+        name = "";
+        description = "";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    public String add() {
+        if (!name.isEmpty() && !description.isEmpty())
+            manager.createRole(name, description);
+        return backToList();
+    }
+
+    public String backToList() {
+        name = description = "";
+        return "role_list";
+    }
+    
     public List<Role> getAllRoles() {
         return manager.getAllRoles();
     }
