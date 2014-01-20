@@ -2,10 +2,7 @@ package com.example.people.ejb;
 
 import com.example.people.entities.Person;
 import com.example.people.entities.Role;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,16 +24,16 @@ public class PersonRoleManagerBean implements PersonRoleManager {
     @Override
     public void createPersonWithRoles(String firstName, String lastName, int[] roleIds) {
         Person person = new Person(firstName, lastName);
-        for (int roleId : roleIds) {
-            Role role = em.find(Role.class, roleId);
-            person.addRole(role);
-        }
+        setPersonRoles(person, roleIds);
         em.persist(person);
     }
     
-    @Override
-    public void addPersonToRoles(Person person, Set<Role> roles) {
-        person.addRoles(roles);
+    private void setPersonRoles(Person person, int[] roleIds) {
+        person.clearRoles();
+        for (int roleId : roleIds) {
+            Role role = getRole(roleId);
+            person.addRole(role);
+        }
     }
     
     @Override
@@ -47,22 +44,17 @@ public class PersonRoleManagerBean implements PersonRoleManager {
     
     @Override
     public void deletePerson(int id) {
-        Person person = em.find(Person.class, id);
+        Person person = getPerson(id);
         if (person != null)
             em.remove(person);
     }
-    
     
     @Override
     public void updatePerson(int id, String firstName, String lastName, int[] roleIds) {
         Person person = em.find(Person.class, id);
         person.setFirstName(firstName);
         person.setLastName(lastName);
-        person.setRoles(new HashSet<Role>());
-        for (int roleId : roleIds) {
-            Role role = em.find(Role.class, roleId);
-            person.addRole(role);
-        }
+        setPersonRoles(person, roleIds);
     }
     
     @Override
@@ -83,7 +75,7 @@ public class PersonRoleManagerBean implements PersonRoleManager {
 
     @Override
     public void deleteRole(int id) {
-        Role role = em.find(Role.class, id);
+        Role role = getRole(id);
         if (role != null)
             em.remove(role);
     }

@@ -53,10 +53,6 @@ public class Person implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -77,16 +73,12 @@ public class Person implements Serializable {
         return Collections.unmodifiableSet(roles);
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = new HashSet<>(roles);
-    }
-
-    public void addRoles(Set<Role> roles) {
-        this.roles.addAll(roles);
-    }
-
     public void addRole(Role role) {
         this.roles.add(role);
+    }
+
+    public void clearRoles() {
+        roles.clear();
     }
 
     @Override

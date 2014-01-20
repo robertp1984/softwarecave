@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Set;
 
 public interface PersonRoleManager extends Serializable {
-    void addPersonToRoles(Person person, Set<Role> roles);
     void createPersonWithRoles(String firstName, String lastName, int[] roleIds);
     Person getPerson(int id);
     List<Person> getAllPersons();
