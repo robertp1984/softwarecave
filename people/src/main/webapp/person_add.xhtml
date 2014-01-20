@@ -10,17 +10,17 @@
     <h:body>
         <h:form>
             <h:panelGrid columns="2">
-                ${msgs.firstName} <h:inputText value="#{personList.firstName}" />
-                ${msgs.lastName} <h:inputText value="#{personList.lastName}" />
-                ${msgs.roles}
-                <h:selectManyCheckbox value="#{personList.roleIds}" layout="lineDirection">
+                <h:outputLabel value="${msgs.firstName}" for="firstName"/> <h:inputText id="firstName" value="#{personList.firstName}" />
+                <h:outputLabel value="${msgs.lastName}" for="lastName"/> <h:inputText id="lastName" value="#{personList.lastName}" />
+                <h:outputLabel value="${msgs.roles}" for="roles"/>
+                <h:selectManyCheckbox id="roles" value="#{personList.roleIds}" layout="lineDirection">
                     <f:selectItems value="#{personList.allRoleItems}" />
                 </h:selectManyCheckbox>
             </h:panelGrid>
             <h:panelGrid columns="2">
                 <h:commandButton action="#{personList.add}" value="#{msgs.add}" styleClass="proceedBigButton"/>
                 <h:commandButton action="#{personList.backToList}" value="#{msgs.backToList}" styleClass="proceedBigButton"/>
-            </h:panelGrid>
+            </h:panelGrid> 
         </h:form>
     </h:body>
 </html>

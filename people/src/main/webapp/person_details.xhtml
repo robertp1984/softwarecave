@@ -11,10 +11,10 @@
     <h:body>
         <h:form>
             <h:panelGrid columns="2" rendered="#{!personList.editing}">
-                #{msgs.firstName} <h:outputText value="#{personList.firstName}" />
-                #{msgs.lastName} <h:outputText value="#{personList.lastName}" />
-                #{msgs.roles}
-                <h:panelGroup>
+                <h:outputLabel value="#{msgs.firstName}" for="firstName" /> <h:outputText id="firstName" value="#{personList.firstName}" />
+                <h:outputLabel value="#{msgs.lastName}" for="lastName"/> <h:outputText id="lastName" value="#{personList.lastName}" />
+                <h:outputLabel value="#{msgs.roles}" for="roles" />
+                <h:panelGroup id="roles">
                     <c:forEach var="role" items="#{personList.roles}">
                         <h:outputText value="#{role.name} "/>
                     </c:forEach>
@@ -26,10 +26,10 @@
             </h:panelGrid>
             
             <h:panelGrid columns="2" rendered="#{personList.editing}">
-                #{msgs.firstName} <h:inputText value="#{personList.firstName}" />
-                #{msgs.lastName} <h:inputText value="#{personList.lastName}" />
-                #{msgs.roles}
-                <h:selectManyCheckbox value="#{personList.roleIds}">
+                <h:outputLabel value="#{msgs.firstName}" for="firstNameEdit" />  <h:inputText id="firstNameEdit" value="#{personList.firstName}" />
+                <h:outputLabel value="#{msgs.lastName}" for="lastNameEdit"/> <h:inputText id="lastNameEdit" value="#{personList.lastName}" />
+                <h:outputLabel value="#{msgs.roles}" for="rolesEdit" /> 
+                <h:selectManyCheckbox id="rolesEdit" value="#{personList.roleIds}">
                     <f:selectItems value="#{personList.allRoleItems}" />
                 </h:selectManyCheckbox>
             </h:panelGrid>

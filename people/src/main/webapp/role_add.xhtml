@@ -9,8 +9,8 @@
     <h:body>
         <h:form>
             <h:panelGrid columns="2">
-                ${msgs.name} <h:inputText value="#{roleList.name}" />
-                ${msgs.description} <h:inputText value="#{roleList.description}" />
+                <h:outputLabel value="${msgs.name}" for="name" /> <h:inputText id="name" value="#{roleList.name}" />
+                <h:outputLabel value="${msgs.description}" for="description" /> <h:inputText id="description" value="#{roleList.description}" />
             </h:panelGrid>
             <h:panelGrid columns="2">
                 <h:commandButton action="#{roleList.add}" value="#{msgs.add}" styleClass="proceedBigButton"/>

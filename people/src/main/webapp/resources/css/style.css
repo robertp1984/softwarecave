@@ -1,3 +1,25 @@
+
+form label {
+    font-weight: bold;
+    text-align: right;
+}
+
+input[type="submit"] {
+    font-weight: bold;
+    background-color: #93b2ff;
+    border-color: black;
+    border-style: solid;
+    border-width: 0.3mm;
+}
+
+.proceedBigButton {
+    padding: 1em;
+}
+
+.proceedSmallButton {
+    padding: 0.25em;
+}
+
 .roleHeader {
     text-align: center;
     background-color: gainsboro;
@@ -13,22 +35,4 @@
 .roleEvenRow {
     text-align: center;
     background: white;
-}
-
-.proceedBigButton {
-    font-weight: bold;
-    background-color: #93b2ff;
-    border-color: black;
-    border-style: solid;
-    border-width: 0.3mm;
-    padding: 2mm;
-}
-
-.proceedSmallButton {
-    font-weight: bold;
-    background-color: #93b2ff;
-    border-color: black;
-    border-style: solid;
-    border-width: 0.3mm;
-    padding: 0.5mm;
 }
