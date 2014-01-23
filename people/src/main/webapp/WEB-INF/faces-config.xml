@@ -15,4 +15,55 @@
         </resource-bundle>
     </application>
  
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>personlist</from-outcome>
+            <to-view-id>/person_list.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>rolelist</from-outcome>
+            <to-view-id>/role_list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/person_add.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>back</from-outcome>
+            <to-view-id>/person_list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/person_list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>persondetails</from-outcome>
+            <to-view-id>/person_details.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>personadd</from-outcome>
+            <to-view-id>/person_add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>rolelist</from-outcome>
+            <to-view-id>/role_list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/role_list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>personlist</from-outcome>
+            <to-view-id>/person_list.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>roleadd</from-outcome>
+            <to-view-id>/role_add.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/role_add.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>back</from-outcome>
+            <to-view-id>/role_list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

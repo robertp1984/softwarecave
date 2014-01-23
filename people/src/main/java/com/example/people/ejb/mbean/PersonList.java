@@ -92,7 +92,7 @@ public class PersonList implements Serializable {
     
     public String backToList() {
         clear();
-        return "person_list";
+        return "back";
     }
     
     public List<Person> getAllPersons() {
@@ -101,7 +101,7 @@ public class PersonList implements Serializable {
     
     public String deletePerson(int id) {
         manager.deletePerson(id);
-        return "";
+        return null;
     }
 
     public String showDetails(int id) {
@@ -112,23 +112,23 @@ public class PersonList implements Serializable {
         this.id = id;
         roles = person.getRoles();
         editing = false;
-        return "person_details";
+        return "persondetails";
     }
     
     public String startEditing() {
         editing = true;
-        return "";
+        return null;
     }
     
     public String saveChanges() {
         manager.updatePerson(id, firstName, lastName, roleIds);
         showDetails(id);
-        return "";
+        return null;
     }
     
     public String abortChanges() {
         showDetails(id);
-        return "";
+        return null;
     }
 
     private void clear() {

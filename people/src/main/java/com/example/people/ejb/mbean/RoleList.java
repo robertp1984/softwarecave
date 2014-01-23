@@ -49,7 +49,7 @@ public class RoleList implements Serializable {
 
     public String backToList() {
         name = description = "";
-        return "role_list";
+        return "back";
     }
     
     public List<Role> getAllRoles() {
