@@ -12,6 +12,10 @@ input[type="submit"] {
     border-width: 0.3mm;
 }
 
+input[type="submit"]:disabled {
+    background-color: #cccccc;
+}
+
 .proceedBigButton {
     padding: 1em;
 }

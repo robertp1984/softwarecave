@@ -24,7 +24,8 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">#{msgs.action}</f:facet>
-                    <h:commandButton value="#{msgs.delete}" action="#{roleList.deleteRole(role.id)}" styleClass="proceedSmallButton"/>
+                    <h:commandButton value="#{msgs.delete}" action="#{roleList.deleteRole(role.id)}" styleClass="proceedSmallButton"
+                                     disabled="#{!roleList.canDeleteRole(role.id)}" />
                 </h:column>
             </h:dataTable>
             <h:panelGrid columns="2">

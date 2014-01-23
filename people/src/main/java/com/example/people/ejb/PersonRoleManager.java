@@ -4,8 +4,9 @@ import com.example.people.entities.Person;
 import com.example.people.entities.Role;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
+import javax.ejb.Remote;
 
+@Remote
 public interface PersonRoleManager extends Serializable {
     void createPersonWithRoles(String firstName, String lastName, int[] roleIds);
     Person getPerson(int id);
@@ -17,4 +18,6 @@ public interface PersonRoleManager extends Serializable {
     Role getRole(int id);
     List<Role> getAllRoles();
     void deleteRole(int id);
+
+    long getPersonCountBelongingToRole(int roleId);
 }

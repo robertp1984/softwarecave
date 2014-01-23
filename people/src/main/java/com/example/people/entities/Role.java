@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PEOPLE_ROLE")
-@NamedQuery(name = "findAllRoles", query = "select o from Role o order by o.id")
+@NamedQuery(name = "selectAllRoles", query = "select o from Role o order by o.id")
 public class Role implements Serializable {
 
     private static final long serialVersionUID = 238947623894234L;

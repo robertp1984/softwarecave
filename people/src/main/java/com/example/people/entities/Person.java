@@ -13,12 +13,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "PEOPLE_PERSON")
-@NamedQuery(name = "findAllPerson", query = "select o from Person o order by o.id")
+@NamedQueries({
+    @NamedQuery(name = "selectAllPersons", query = "select o from Person o order by o.id"),
+    @NamedQuery(name = "selectAllPersonsForRole", query = "select o from Person o left join o.roles r where r.id=:roleId"),
+    @NamedQuery(name = "countPersonsForRole", query = "select count(o.id) from Person o left join o.roles r where r.id=:roleId")
+})
 public class Person implements Serializable {
 
     private static final long serialVersionUID = -2346897234623746L;

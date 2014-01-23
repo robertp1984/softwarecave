@@ -38,7 +38,7 @@ public class PersonRoleManagerBean implements PersonRoleManager {
     
     @Override
     public List<Person> getAllPersons() {
-        TypedQuery<Person> query = em.createNamedQuery("findAllPerson", Person.class);
+        TypedQuery<Person> query = em.createNamedQuery("selectAllPersons", Person.class);
         return query.getResultList();
     }
     
@@ -69,7 +69,7 @@ public class PersonRoleManagerBean implements PersonRoleManager {
 
     @Override
     public List<Role> getAllRoles() {
-        TypedQuery<Role> query = em.createNamedQuery("findAllRoles", Role.class);
+        TypedQuery<Role> query = em.createNamedQuery("selectAllRoles", Role.class);
         return query.getResultList();
     }
 
@@ -79,5 +79,11 @@ public class PersonRoleManagerBean implements PersonRoleManager {
         if (role != null)
             em.remove(role);
     }
-
+    
+    @Override
+    public long getPersonCountBelongingToRole(int roleId) {
+        TypedQuery<Long> query = em.createNamedQuery("countPersonsForRole", Long.class);
+        query.setParameter("roleId", roleId);
+        return query.getSingleResult();
+    }
 }

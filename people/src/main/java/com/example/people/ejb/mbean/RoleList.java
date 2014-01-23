@@ -61,4 +61,7 @@ public class RoleList implements Serializable {
         return "";
     }
 
+    public boolean canDeleteRole(int id) {
+        return manager.getPersonCountBelongingToRole(id) == 0;
+    }
 }
