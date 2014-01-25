@@ -38,16 +38,21 @@ public class Cities implements Serializable {
         LOGGER.info(String.format("Selected country: %s", country));
     }
 
-    public SelectItem[] getAllCountries() {
+    public SelectItem[] getCountries() {
         return countrySelectItems;
     }
     
     private void createCountrySelectItems() {
         String[] countries = dao.getAllCountries();
-        country = countries[0];
-        countrySelectItems = new SelectItem[countries.length];
-        for (int i = 0; i < countries.length; i++)
-            countrySelectItems[i] = new SelectItem(countries[i], countries[i]);
+        if (countries != null && countries.length > 0) {
+            country = countries[0];
+            countrySelectItems = new SelectItem[countries.length];
+            for (int i = 0; i < countries.length; i++)
+                countrySelectItems[i] = new SelectItem(countries[i], countries[i]);
+        } else {
+            country = "";
+            countrySelectItems = new SelectItem[0];
+        }
     }
     
     public String getCity() {
@@ -73,7 +78,7 @@ public class Cities implements Serializable {
         }
     }
     
-    public SelectItem[] getAllCities() {
+    public SelectItem[] getCities() {
         return citySelectItems;
     }
 }

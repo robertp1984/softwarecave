@@ -11,13 +11,13 @@
             <h:panelGrid columns="2">
                 #{msgs.country}
                 <h:selectOneMenu id="countryList" value="#{cities.country}">
-                    <f:selectItems value="#{cities.allCountries}" />
+                    <f:selectItems value="#{cities.countries}" />
                     <f:ajax event="change" execute="countryList" render="cityList" />
                 </h:selectOneMenu>
                 
                 #{msgs.city}
                 <h:selectOneMenu id="cityList" value="#{cities.city}">
-                    <f:selectItems value="#{cities.allCities}" />
+                    <f:selectItems value="#{cities.cities}" />
                 </h:selectOneMenu>
             </h:panelGrid>
             <h:commandLink action="index" value="#{msgs.back}" />
