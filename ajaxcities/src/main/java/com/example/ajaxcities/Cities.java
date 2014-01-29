@@ -2,6 +2,7 @@ package com.example.ajaxcities;
 
 import java.io.Serializable;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.SelectItem;
@@ -14,7 +15,7 @@ public class Cities implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(Cities.class.getName());
 
     @EJB
-    private CityDAO dao;
+    private CityDAO cityDAO;
     
     private SelectItem[] countrySelectItems;
     private String country;
@@ -22,8 +23,8 @@ public class Cities implements Serializable {
     private SelectItem[] citySelectItems;
     private String city;
 
-    public Cities() {
-        dao = new CityDAO();
+    @PostConstruct
+    public void init() {
         createCountrySelectItems();
         createCitySelectItems();
     }
@@ -43,7 +44,7 @@ public class Cities implements Serializable {
     }
     
     private void createCountrySelectItems() {
-        String[] countries = dao.getAllCountries();
+        String[] countries = cityDAO.getAllCountries();
         if (countries != null && countries.length > 0) {
             country = countries[0];
             countrySelectItems = new SelectItem[countries.length];
@@ -64,7 +65,7 @@ public class Cities implements Serializable {
     }
 
     private void createCitySelectItems() {
-        String[] cities = dao.getCities(country);
+        String[] cities = cityDAO.getCities(country);
         if (cities != null && cities.length > 0) {
             city = cities[0];
             citySelectItems = new SelectItem[cities.length];
