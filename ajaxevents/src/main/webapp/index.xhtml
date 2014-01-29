@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msgs.ajaxEvents}</title>
+        <h:outputScript library="javascript" name="scripts.js" />
+    </h:head>
+    <h:body>
+        <h:form prependId="false">
+            <h:panelGrid columns="2">
+                <h:commandButton value="#{msgs.calculatePi}" action="#{valueCalculator.calculatePi}">
+                    <f:ajax event="action" execute="@this" render="piValueText"
+                            onevent="calculatePiListener" onerror="calculatePiError" />
+                </h:commandButton>
+                <h:outputText id="piValueText" value="#{valueCalculator.hasPiValue ? valueCalculator.piValue : ''}" />
+            </h:panelGrid> <br/>
+            
+            <h:outputText id="status" style="font-style: italic;"/>
+        </h:form>
+    </h:body>
+</html>
