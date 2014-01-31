@@ -10,5 +10,6 @@ function calculatePiListener(data) {
 
 function calculatePiError(data) {
     var statusElement = document.getElementById("status");
-    statusElement.innerHTML = "<b>Error</b> <i>" + data.description + "</i>";
+    statusElement.innerHTML = "<b>Error</b> <i>" + data.status + " "
+            + data.description + "</i>";
 }
