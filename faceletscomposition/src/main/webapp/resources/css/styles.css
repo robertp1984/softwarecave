@@ -1,0 +1,12 @@
+.header {
+    font-stretch: expanded;
+}
+
+.data {
+    color: #000066;
+}
+
+.footer {
+    font-style: italic;
+    font-size: smaller;
+}

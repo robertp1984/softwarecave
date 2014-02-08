@@ -1,29 +1,24 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h:head>
-        <title>#{msgs.details}</title>
-    </h:head>
-    <h:body>
+<ui:composition template="/templates/main.xhtml"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+    <ui:define name="title">
+        #{msgs.presidents}: #{presidents.name}
+    </ui:define>
+    
+    <ui:define name="header">
+        <ui:param name="presidentName" value="#{presidents.name}" />
+        <ui:include src="/sections/selected-header.xhtml" />
+    </ui:define>
 
-        <ui:decorate template="/templates/main.xhtml">
-            <ui:define name="header">
-                <ui:param name="presidentName" value="#{presidents.name}" />
-                <ui:include src="/sections/selected-header.xhtml" />
-            </ui:define>
-            
-            <ui:define name="data" >
-                <h:form>
-                    <h:panelGrid columns="1">
-                        <h:outputText style="text-align: center; font-size: x-large" value="#{presidents.name}" />
-                        #{presidents.description}
-                        <h:commandButton value="#{msgs.back}" action="index" />
-                    </h:panelGrid>
-                </h:form>
-            </ui:define>
-        </ui:decorate>
-
-    </h:body>
-</html>
+    <ui:define name="data" >
+        <h:form>
+            <h:panelGrid columns="1">
+                <h:outputText style="text-align: center; font-size: x-large" value="#{presidents.name}" />
+                #{presidents.description}
+                <h:commandButton value="#{msgs.back}" action="index" />
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>

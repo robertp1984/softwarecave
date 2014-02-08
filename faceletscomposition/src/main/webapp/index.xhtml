@@ -1,26 +1,21 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h:head>
-        <title>#{msgs.presidents}</title>
-    </h:head>
-    <h:body>
-
-        <ui:decorate template="/templates/main.xhtml">
-            <ui:define name="data" >
-                <h:form>
-                    <h:panelGrid columns="1">
-                        <h:selectOneListbox value="#{presidents.selectedIndex}">
-                            <f:selectItems value="#{presidents.allItems}" />
-                        </h:selectOneListbox>
-                        <h:commandButton value="#{msgs.details}" action="details" />
-                    </h:panelGrid>
-                </h:form>
-            </ui:define>
-        </ui:decorate>
-
-    </h:body>
-</html>
+<ui:composition template="/templates/main.xhtml"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:define name="title">
+        #{msgs.presidents}
+    </ui:define>
+    
+    <ui:define name="data" >
+        <h:form>
+            <h:panelGrid columns="1">
+                <h:selectOneListbox value="#{presidents.selectedIndex}">
+                    <f:selectItems value="#{presidents.allItems}" />
+                </h:selectOneListbox>
+                <h:commandButton value="#{msgs.details}" action="details" />
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>
