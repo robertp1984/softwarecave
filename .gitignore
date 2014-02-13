@@ -4,3 +4,8 @@
 /jacoco/target/
 /tempfiles/target/
 /faceletscomposition/target/
+/stax-write/target/
+
+/*/faces-config.NavData
+/*/nb-configuration.xml
+
