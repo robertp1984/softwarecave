@@ -1,7 +1,6 @@
 package com.example.staxwrite;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,10 +21,6 @@ public class Book {
 
     public Book(String author, String title, Category category, String language, int year) {
         this (Collections.singletonList(author), title, category, language, year);
-    }
-
-    public Book(String[] authors, String title, Category category, String language, int year) {
-        this (Arrays.asList(authors), title, category, language, year);
     }
 
     public List<String> getAuthors() {

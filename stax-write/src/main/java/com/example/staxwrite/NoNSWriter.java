@@ -39,7 +39,7 @@ public class NoNSWriter {
 
     private void writeBookElem(XMLStreamWriter writer, Book book) throws XMLStreamException {
         writer.writeStartElement("book");
-        writer.writeAttribute("category", book.getLanguage());
+        writer.writeAttribute("language", book.getLanguage());
 
         writeAuthorsElem(writer, book.getAuthors());
 

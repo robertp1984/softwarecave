@@ -43,7 +43,7 @@ public class DefaultNSWriter {
 
     private void writeBookElem(XMLStreamWriter writer, Book book) throws XMLStreamException {
         writer.writeStartElement(NS, "book");
-        writer.writeAttribute(NS, "category", book.getLanguage());
+        writer.writeAttribute(NS, "language", book.getLanguage());
 
         writeAuthorsElem(writer, book.getAuthors());
 
