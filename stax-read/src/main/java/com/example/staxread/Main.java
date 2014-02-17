@@ -11,10 +11,8 @@ public class Main {
             if (is == null)
                 throw new IOException("Failed to open resource");
 
-            XHTMLExtractor reader = new XHTMLExtractor();
-            reader.readFromXML(is);
-            System.out.printf("Links: %s%n%n", reader.getLinks());
-            System.out.printf("Images: %s%n", reader.getImages());
+            BooksReader reader = new BooksReader();
+            System.out.println(reader.readFromXML(is));
         }
     }
 }
