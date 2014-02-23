@@ -11,9 +11,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class StringList implements Serializable {
+    private static final long serialVersionUID = 324589274837L;
+    
     private List<String> items = new ArrayList<>();
     
-    public void add(String item) {
+    public void addItem(String item) {
         items.add(item);
     }
     
