@@ -17,6 +17,8 @@ class PrintingFileVisitor implements FileVisitor<Path> {
     
     public PrintingFileVisitor() {
         prefix = new StringBuffer();
+        fileCount = 0;
+        directoryCount = 0;
     }
 
     @Override
