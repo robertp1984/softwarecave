@@ -16,8 +16,8 @@
             </c:forEach>
         </p>
         
-        <sf:form method="POST" action="stringlist-add" modelAttribute="newItem" >
-            <sf:label path="text">New item:</sf:label><sf:input path="text" />
+        <sf:form method="POST" action="add" modelAttribute="newItem" >
+            <sf:label path="text">New item:</sf:label><sf:input path="text"/>
             <input type="submit" value="Add" />
         </sf:form>
         
