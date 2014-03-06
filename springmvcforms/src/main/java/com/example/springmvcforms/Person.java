@@ -7,12 +7,12 @@ public class Person implements Serializable {
     
     private String firstName;
     private String lastName;
-    private int age;
+    private Integer age;
 
     public Person() {
         firstName = "";
         lastName = "";
-        age = 0;
+        age = null;
     }
     
     public String getFirstName() {
@@ -31,11 +31,11 @@ public class Person implements Serializable {
         this.lastName = lastName;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 }
