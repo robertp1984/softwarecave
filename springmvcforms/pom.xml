@@ -3,12 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>springmvchello</artifactId>
+    <artifactId>springmvcforms</artifactId>
     <version>0.1.0</version>
     <packaging>war</packaging>
 
     <properties>
         <org.springframework.version>3.2.8.RELEASE</org.springframework.version>
+        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
     </properties>
     
     <dependencies>

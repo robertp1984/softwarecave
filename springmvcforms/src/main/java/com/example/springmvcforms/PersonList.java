@@ -1,4 +1,4 @@
-package com.example.springmvchello;
+package com.example.springmvcforms;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,16 +10,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class StringList implements Serializable {
+public class PersonList implements Serializable {
     private static final long serialVersionUID = 324589274837L;
     
-    private List<String> items = new ArrayList<>();
+    private List<Person> list = new ArrayList<>();
     
-    public void addItem(String item) {
-        items.add(item);
+    public void addPerson(Person person) {
+        list.add(person);
     }
     
-    public List<String> getItems() {
-        return Collections.unmodifiableList(items);
+    public List<Person> getAll() {
+        return Collections.unmodifiableList(list);
     }
 }

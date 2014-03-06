@@ -5,13 +5,13 @@
          version="3.0">
     
     <servlet>
-        <servlet-name>springmvchello</servlet-name>
+        <servlet-name>springmvcforms</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     
     <servlet-mapping>
-        <servlet-name>springmvchello</servlet-name>
+        <servlet-name>springmvcforms</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
