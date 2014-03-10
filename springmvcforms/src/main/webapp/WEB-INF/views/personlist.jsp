@@ -12,7 +12,7 @@
     <body>
         <p>
             <c:forEach var="person" items="${list}">
-                <span class="box-with-border">${person.firstName} ${person.lastName} (${person.age})</span>
+                <span class="box-with-border"><c:out value="${person.firstName} ${person.lastName} (${person.age})" /></span>
             </c:forEach>
         </p>
         
