@@ -1,0 +1,41 @@
+.box-with-border {
+    border: 1px solid black;
+    border-radius: 0.4em;
+    background-color: #99ff99;
+    display: inline-block;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    margin: 0.2em 0.2em 0.2em 0.2em;
+}
+
+.personForm {
+    border: 2px solid black;
+    display: inline-block;
+    padding: 1em;
+    background-color: #efefef;
+}
+
+.personForm td {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.personForm label {
+    font-weight: bold;
+    font-style: oblique;
+    float: right;
+}
+
+.personForm input[type="text"] {
+    background-color: lightgrey;
+    border: 2px solid darkseagreen;
+}
+
+.personForm input[type="text"]:focus {
+    border-color: orange;
+}
+
+.personForm input[type="submit"] {
+    background-color: black;
+    color: white;
+    padding: 0.2em 2em 0.2em 2em;
+}
