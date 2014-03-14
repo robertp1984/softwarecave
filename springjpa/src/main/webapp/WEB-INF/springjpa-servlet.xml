@@ -18,6 +18,7 @@
                     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
  
     <context:component-scan base-package="com.example.springjpa" />
+    <context:annotation-config />
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:annotation-driven />
              
@@ -27,29 +28,25 @@
         <property name="suffix" value=".jsp" />
     </bean>
     
-    <jee:jndi-lookup id="dataSource" jndi-name="jdbc/orcl" resource-ref="true" />
-
-    <context:load-time-weaver />
-    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
     
-    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+    <jee:jndi-lookup id="dataSource" jndi-name="java:/orcl" />
+    
+    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="database" value="ORACLE" />
         <property name="showSql" value="true" />
         <property name="generateDdl" value="true" />
-        <property name="databasePlatform" value="org.eclipse.persistence.platform.database.OraclePlatform" />
     </bean>
         
     <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="jtaDataSource" ref="dataSource" />
         <property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
     </bean>
-    
-<!--    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="emf" />
-    </bean>-->
 
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+
+    <context:load-time-weaver />
+    
+    <tx:annotation-driven />   
     <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager" />
-    
-    <tx:annotation-driven proxy-target-class="true" />
-    
+
 </beans>

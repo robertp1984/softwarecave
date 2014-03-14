@@ -4,10 +4,10 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 @Entity
-@NamedQuery(name = "findAllPerson", query = "SELECT o from Person o")
+@Table(name = "springjpa_person")
 public class Person implements Serializable {
     private static final long serialVersionUID = 3297423984732894L;
     
@@ -47,4 +47,5 @@ public class Person implements Serializable {
     public void setAge(Integer age) {
         this.age = age;
     }
+
 }

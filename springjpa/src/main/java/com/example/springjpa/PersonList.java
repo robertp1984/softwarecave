@@ -16,12 +16,14 @@ public class PersonList implements Serializable {
     @PersistenceContext
     private EntityManager em;
     
+    @Transactional
     public void addPerson(Person person) {
         em.persist(person);
     }
     
+    @Transactional
     public List<Person> getAll() {
-        TypedQuery<Person> query = em.createNamedQuery("findAllPerson", Person.class);
+        TypedQuery<Person> query = em.createQuery("select o from Person o", Person.class);
         return query.getResultList();
     }
 }
