@@ -4,10 +4,12 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "springjpa_person")
+@NamedQuery(name = "Person.selectAll", query = "select o from Person o")
 public class Person implements Serializable {
     private static final long serialVersionUID = 3297423984732894L;
     

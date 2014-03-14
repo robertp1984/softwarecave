@@ -23,7 +23,7 @@ public class PersonList implements Serializable {
     
     @Transactional
     public List<Person> getAll() {
-        TypedQuery<Person> query = em.createQuery("select o from Person o", Person.class);
+        TypedQuery<Person> query = em.createNamedQuery("Person.selectAll", Person.class);
         return query.getResultList();
     }
 }
