@@ -4,8 +4,10 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name = "findAllPerson", query = "SELECT o from Person o")
 public class Person implements Serializable {
     private static final long serialVersionUID = 3297423984732894L;
     
