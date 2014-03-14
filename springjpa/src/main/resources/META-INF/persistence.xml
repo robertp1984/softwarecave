@@ -3,11 +3,8 @@
     <persistence-unit name="mainPU" transaction-type="JTA">
         <class>com.example.springjpa.Person</class>
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <jta-data-source>java:/orcl</jta-data-source>
-        <exclude-unlisted-classes />
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
-            <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
         </properties>
     </persistence-unit>

@@ -44,8 +44,6 @@
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
-    <context:load-time-weaver />
-    
     <tx:annotation-driven />   
     <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager" />
 
