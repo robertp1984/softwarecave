@@ -21,9 +21,18 @@ public class Person implements Serializable {
     private Integer age;
 
     public Person() {
+        id = 0;
         firstName = "";
         lastName = "";
         age = null;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     public String getFirstName() {

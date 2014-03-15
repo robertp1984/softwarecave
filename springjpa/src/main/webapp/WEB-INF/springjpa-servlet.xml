@@ -44,7 +44,7 @@
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
-    <tx:annotation-driven />   
     <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>   
 
 </beans>
