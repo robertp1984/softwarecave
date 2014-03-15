@@ -39,3 +39,9 @@
     color: white;
     padding: 0.2em 2em 0.2em 2em;
 }
+
+.errors {
+    font-weight: bold;
+    font-size: 60%;
+    color: red;
+}

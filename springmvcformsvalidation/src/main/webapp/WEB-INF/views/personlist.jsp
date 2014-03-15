@@ -21,18 +21,18 @@
                 <tr>
                     <td><sf:label path="firstName">First name:</sf:label></td>
                     <td><sf:input path="firstName"/></td>
-                    <td><sf:errors path="firstName" /></td>
                 </tr>
+                <tr><td colspan="2"><sf:errors path="firstName" cssClass="errors"/></td></tr>
                 <tr>
                     <td><sf:label path="lastName">Last name:</sf:label></td>
                     <td><sf:input path="lastName"/></td>
-                    <td><sf:errors path="lastName" /></td>
                 </tr>
+                <tr><td colspan="2"><sf:errors path="lastName" cssClass="errors"/></td></tr>
                 <tr>
                     <td><sf:label path="age">Age:</sf:label></td>
                     <td><sf:input path="age" /></td>
-                    <td><sf:errors path="age" /></td>
                 </tr>
+                <tr><td colspan="2"><sf:errors path="age" cssClass="errors"/></td></tr>
                 <tr><td></td><td><input type="submit" value="Add" /></td></tr>
             </table>
         </sf:form>
