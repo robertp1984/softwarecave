@@ -17,8 +17,8 @@
                     http://www.springframework.org/schema/tx
                     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
  
-    <context:component-scan base-package="com.example.springjpa" />
     <context:annotation-config />
+    <context:component-scan base-package="com.example.springjpa" />
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:annotation-driven />
              
@@ -42,7 +42,7 @@
         <property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
     </bean>
 
-    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
     <tx:annotation-driven />   
     <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager" />
