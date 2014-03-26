@@ -11,6 +11,7 @@ public class Person implements Serializable {
     @Size(min = 1, max = 40, message = "{lastNameInvalid}")
     private String lastName;
 
+    @NotNull
     @DayOfWeek(value = DayOfWeekType.WEEKEND, ignoreCase = true)
     private String favouriteDayOfWeek;
 

@@ -16,7 +16,7 @@ public class DayOfWeekValidator implements ConstraintValidator<DayOfWeek, String
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         if (value == null)
-            return false;
+            return true;
         
         for (DayOfWeekType type : allowedTypes) {
             switch (type) {

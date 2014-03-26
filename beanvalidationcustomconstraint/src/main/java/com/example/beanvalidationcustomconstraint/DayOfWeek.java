@@ -1,6 +1,7 @@
 package com.example.beanvalidationcustomconstraint;
 
 import java.lang.annotation.Documented;
+import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 import java.lang.annotation.Retention;
@@ -11,7 +12,7 @@ import javax.validation.Payload;
 
 @Documented
 @Constraint(validatedBy = DayOfWeekValidator.class)
-@Target({ METHOD, FIELD })
+@Target({ METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 public @interface DayOfWeek {
     String message() default "{com.example.beanvalidationcustomconstraint.DayOfWeek.message}";
