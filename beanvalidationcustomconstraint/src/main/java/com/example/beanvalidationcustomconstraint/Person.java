@@ -1,6 +1,7 @@
 package com.example.beanvalidationcustomconstraint;
 
 import java.io.Serializable;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Person implements Serializable {
