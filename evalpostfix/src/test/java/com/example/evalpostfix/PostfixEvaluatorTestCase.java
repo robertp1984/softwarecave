@@ -23,6 +23,7 @@ public class PostfixEvaluatorTestCase {
         Assert.assertEquals(eval.evaluate("2.3 3 - 3 *"), (2.3 - 3) * 3, DELTA);
         Assert.assertEquals(eval.evaluate("2 3 / 1.2 - 7 *"), (2.0 / 3 - 1.2) * 7, DELTA);
         Assert.assertEquals(eval.evaluate("2 3 4.1 -2.4 / - *"), 2 * ( 3 - 4.1 / (-2.4)), DELTA);
+        Assert.assertEquals(eval.evaluate("2 3 4 + * 7 -"), 2 * (3 + 4) - 7, DELTA);
     }
     
     @Test(expected = IllegalArgumentException.class)

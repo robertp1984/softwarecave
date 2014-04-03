@@ -12,7 +12,7 @@ public class PostfixEvaluator {
         args = new LinkedList<>();
     }
 
-    double evaluate(String expr) {
+    public double evaluate(String expr) {
         args.clear();
         try (Scanner scanner = new Scanner(expr)) {
             while (scanner.hasNext()) {
