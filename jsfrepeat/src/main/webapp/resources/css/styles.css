@@ -1,0 +1,37 @@
+
+.table {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+.tableHeader {
+    background-color: #aaddaa;
+    color: black;
+    font-weight: bold;
+}
+
+.tableFooter {
+    background-color: #aaddaa;
+    color: black;
+    text-align: center;
+}
+
+.tableRow {
+    background-color: white;
+}
+
+.tableRowAlt {
+    background-color: #ccffcc;
+}
+
+.table tr,td {
+    padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+.tableCaption {
+    caption-side: bottom;
+    text-align: center;
+    margin: 1em;
+    font-weight: bold;
+    font-style: italic;
+}

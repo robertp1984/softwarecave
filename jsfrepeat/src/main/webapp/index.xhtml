@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>#{msgs.httpHeaders}</title>
+        <h:outputStylesheet library="css" name="styles.css" />
+    </h:head>
+    <h:body>
+        <table class="table">
+            <tr class="tableHeader" >
+                <th>#{msgs.id}</th>
+                <th>#{msgs.name}</th>
+                <th>#{msgs.value}</th>
+            </tr>
+            <ui:repeat value="#{headers.entries}" var="entry" varStatus="status">
+                <tr class="#{status.even ? 'tableRow' : 'tableRowAlt'}">
+                    <td>
+                        #{status.index + 1}
+                    </td>
+                    <td>
+                        <h:outputText value="#{entry.name}" />
+                    </td>
+                    <td>
+                        <h:outputText value="#{entry.value}" />
+                    </td>
+                    <f:facet name="caption"></f:facet>
+                </tr>
+            </ui:repeat>
+            <tr class="tableFooter">
+                <td></td>
+                <td>#{msgs.stopDash}</td>
+                <td>#{msgs.stopDash}</td>
+            </tr>
+            <caption class="tableCaption">#{msgs.httpHeadersCaption}</caption>
+        </table>
+    </h:body>
+</html>
