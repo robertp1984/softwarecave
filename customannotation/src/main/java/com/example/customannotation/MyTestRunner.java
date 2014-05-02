@@ -37,11 +37,11 @@ public class MyTestRunner {
     }
 
     private static String getTestName(Method method, MyTest annotation) {
-        return annotation.name() != null && !annotation.name().isEmpty() ? annotation.name() : method.getName();
+        return !annotation.name().isEmpty() ? annotation.name() : method.getName();
     }
     
     private void checkThrowable(MyTest annotation, Throwable th) {
-        if (annotation.expected() != null && annotation.expected() == th.getClass())
+        if (annotation.expected() == th.getClass())
             System.out.println("SUCCESS");
         else
             System.out.println("FAILED: " + th.getMessage());
