@@ -18,7 +18,7 @@ public class PersonList implements Serializable {
     
     @Transactional
     public void addPerson(Person person) {
-        sessionFactory.getCurrentSession().persist(person);
+        sessionFactory.getCurrentSession().save(person);
     }
     
     @Transactional
