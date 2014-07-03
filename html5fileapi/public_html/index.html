@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML5 File API</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="text/javascript" src="js/libs/jquery/jquery.js"></script>
+        <script type="text/javascript" src="js/libs/sha1.js"></script>
+        <script type="text/javascript" src="js/process.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+        <form class="fileForm">
+            <input id="fileInput" type="file" required="required" />
+            <button id="processButton" type="button">Process</button>
+        </form>
+
+        <div class="fileStatus">
+            <progress id="processProgress" max="1" value="0"></progress>
+            <p id="processError" class="error"></p>
+            <table id="processResults">
+                <tr><th>Param</th><th>Value</th></tr>
+                <tr><td>Name</td><td id="nameValue"></td></tr>
+                <tr><td>Size</td><td id="sizeValue"></td></tr>
+                <tr><td>Type</td><td id="typeValue"></td></tr>
+                <tr><td>Hash</td><td id="hashValue"></td></tr>
+            </table>
+        </div>
+    </body>
+</html>

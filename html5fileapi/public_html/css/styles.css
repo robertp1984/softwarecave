@@ -1,0 +1,33 @@
+
+.fileForm {
+    margin: 1em;
+}
+
+.fileForm button {
+    font-weight: bold;
+}
+
+.fileStatus .error {
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+    background-color: red;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.fileStatus table {
+    margin: 1em;
+    border-style: solid;
+    border-width: thin;
+    border-color: blue;
+    background-color: aliceblue;
+    border-collapse: collapse;
+}
+
+.fileStatus table th, td {
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+}
