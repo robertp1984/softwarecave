@@ -3,26 +3,36 @@
     margin: 1em;
 }
 
-.fileForm button {
-    font-weight: bold;
+.fileStatus {
+    margin: 1em;
 }
 
 .fileStatus .error {
     border-style: solid;
     border-width: medium;
     border-color: black;
-    background-color: red;
+    background-color: lightpink;
     font-weight: bold;
-    padding: 1em;
+    padding: 0.5em;
 }
 
 .fileStatus table {
-    margin: 1em;
     border-style: solid;
     border-width: thin;
     border-color: blue;
-    background-color: aliceblue;
     border-collapse: collapse;
+}
+
+.fileStatus thead {
+    background-color: #99cccc;
+}
+
+.fileStatus tbody tr:nth-child(odd) {
+    background-color: #eeffff;
+}
+
+.fileStatus tbody tr:nth-child(even) {
+    background-color: #ddeeee;
 }
 
 .fileStatus table th, td {

@@ -5,7 +5,7 @@ function calculateHash(fileContents) {
 function startProcessing(fileInput, onsuccess, onerror, onprogress) {
     var fileList = fileInput[0].files;
     var file = fileList[0];
-    results = {
+    var results = {
         name: file.name,
         size: file.size,
         type: file.type,
@@ -35,7 +35,7 @@ function setResults(name, size, type, hash) {
 }
 
 function clearResults() {
-    $("#processProgress").val(0);
+    $("#processProgress").val(0).show();
     $("#processError").hide();
     $("#processResults").hide();
     setResults("", "", "", "");
@@ -58,7 +58,8 @@ function populateProgress(loaded, total) {
 }
 
 function initialize() {
-    $("#processButton").click(function() {
+    $("#fileForm").submit(function(e) {
+        e.preventDefault();
         clearResults();
         startProcessing($("#fileInput"), populateResults, populateError, populateProgress);
     });
