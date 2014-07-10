@@ -1,0 +1,21 @@
+#countrySelect {
+    padding: 0.2em;
+}
+
+#chart {
+    margin: 1em;
+    width: 90%;
+    height: 300px;
+    clear: both;
+}
+
+#chartError {
+    margin: 1em;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+    background-color: lightpink;
+    font-weight: bold;
+    padding: 0.5em;
+    display: none;
+}
