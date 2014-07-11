@@ -5,7 +5,7 @@
 #chart {
     margin: 1em;
     width: 90%;
-    height: 300px;
+    height: auto;
     clear: both;
 }
 

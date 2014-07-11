@@ -34,6 +34,5 @@
 
         <div id="chartError">Failed to contact server</div>
         <div id="chart"></div>
-
     </body>
 </html>

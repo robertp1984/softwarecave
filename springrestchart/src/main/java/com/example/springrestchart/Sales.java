@@ -1,6 +1,7 @@
 package com.example.springrestchart;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Sales {
@@ -17,6 +18,6 @@ public class Sales {
     }
     
     public List<Double> getValues() {
-        return values;
+        return Collections.unmodifiableList(values);
     }
 }
