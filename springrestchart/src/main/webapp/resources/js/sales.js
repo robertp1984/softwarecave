@@ -13,7 +13,7 @@ function renderPlot(data) {
                 pad: 0
             },
             yaxis: {
-                label: 'USD'
+                label: 'Mln USD'
             }
         }});
 }
