@@ -1,0 +1,50 @@
+
+.personInput label {
+    font-weight: bold;
+}
+
+.personInput td {
+    padding: 0.3em;
+}
+
+.linkButton {
+    display: inline-block;
+    background-color: #7ad37a;
+    border: thin solid black;
+    padding: 0.5em;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.error {
+    border: thin solid black;
+    font-weight: bold;
+    padding: 0.2em;
+    margin-left: 0.4em;
+    background-color: lightpink;
+}
+
+.personTable {
+    border-collapse: collapse;
+    margin: 1em;
+}
+
+.personTable .header {
+    background-color: #65d665;
+}
+
+.personTable .normal {
+    background-color: #a5ffa5;
+}
+
+.personTable .alternative {
+    background-color: #ccffcc;
+}
+
+.personTable th, .personTable td {
+    border-color: black;
+    border-width: thin;
+    border-style: solid;
+    padding: 0.2em;
+}

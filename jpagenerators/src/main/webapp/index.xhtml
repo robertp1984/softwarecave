@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msgs.jpagenerators}</title>
+        <h:outputStylesheet library="default" name="css/style.css" />
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="3" class="personInput">
+                <h:outputLabel for="name" value="#{msgs.nameQuery}"/>
+                <h:inputText id="name" value="#{personBean.newPerson.name}"
+                             validatorMessage="#{msgs.valueRequired}">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="name" errorClass="error" />
+                <h:outputLabel for="city" value="#{msgs.cityQuery}"/>
+                <h:inputText id="city" value="#{personBean.newPerson.address.city}"
+                             validatorMessage="#{msgs.valueRequired}">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="city" errorClass="error" />
+                <h:outputLabel for="street" value="#{msgs.streetQuery}" />
+                <h:inputText id="street" value="#{personBean.newPerson.address.street}"
+                             validatorMessage="#{msgs.valueRequired}">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="street" errorClass="error" />
+                <h:outputText />
+                <h:commandLink value="#{msgs.addPerson}" action="#{personBean.addNewPerson()}"
+                               class="linkButton" />
+            </h:panelGrid>
+        </h:form>
+
+        <h:dataTable value="#{personBean.allPerson}" var="person"
+                     class="personTable" headerClass="header"
+                     rowClasses="normal, alternative">
+            <h:column>
+                <f:facet name="header">
+                    #{msgs.personID}
+                </f:facet>
+                <h:outputText value="#{person.id}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    #{msgs.name}
+                </f:facet>
+                <h:outputText value="#{person.name}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    #{msgs.addressID}
+                </f:facet>
+                <h:outputText value="#{person.address.id}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    #{msgs.street}
+                </f:facet>
+                <h:outputText value="#{person.address.street}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    #{msgs.city}
+                </f:facet>
+                <h:outputText value="#{person.address.city}" />
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>
