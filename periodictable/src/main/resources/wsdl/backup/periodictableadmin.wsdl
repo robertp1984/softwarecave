@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.example.org/periodictableadmin/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="periodictableadmin"
+	targetNamespace="http://www.example.org/periodictableadmin/"
+	xmlns:periodictablebase="http://www.example.org/periodictablebase">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.example.org/periodictableadmin/"
+			xmlns:base="http://www.example.org/periodictablebase">
+			<xsd:import schemaLocation="periodictablebase.xsd"
+				namespace="http://www.example.org/periodictablebase"></xsd:import>
+			<xsd:element name="addElement">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="element" type="base:Element"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="addElementResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="addedElement" type="base:Element"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ElementAlreadyExists">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="message" type="xsd:string">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="updateElement">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="element" type="base:Element"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="updateElementResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+					</xsd:sequence>
+				</xsd:complexType>
+
+			</xsd:element>
+			<xsd:element name="ElementNotFound">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="message" type="xsd:string">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ElementCategoryNotFound">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="message" type="xsd:string">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="addElementRequest">
+		<wsdl:part name="parameters" element="tns:addElement"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="addElementResponse">
+		<wsdl:part name="parameters" element="tns:addElementResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="ElementAlreadyExists">
+		<wsdl:part name="parameters" element="tns:ElementAlreadyExists"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="updateElementRequest">
+		<wsdl:part name="parameters" element="tns:updateElement"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="updateElementResponse">
+		<wsdl:part name="parameters" element="tns:updateElementResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="ElementNotFound">
+		<wsdl:part name="parameters" element="tns:ElementNotFound"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="ElementCategoryNotFound">
+		<wsdl:part name="parameters" element="tns:ElementCategoryNotFound"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="PeriodicTableAdmin">
+		<wsdl:operation name="addElement">
+			<wsdl:input message="tns:addElementRequest"></wsdl:input>
+			<wsdl:output message="tns:addElementResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:ElementAlreadyExists"></wsdl:fault>
+			<wsdl:fault name="fault1" message="tns:ElementCategoryNotFound"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateElement">
+			<wsdl:input message="tns:updateElementRequest"></wsdl:input>
+			<wsdl:output message="tns:updateElementResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:ElementNotFound"></wsdl:fault>
+			<wsdl:fault name="fault1" message="tns:ElementCategoryNotFound"></wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="periodictableadminSOAP" type="tns:PeriodicTableAdmin">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="addElement">
+			<soap:operation
+				soapAction="http://www.example.org/periodictableadmin/addElement" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+			<wsdl:fault name="fault1">
+				<soap:fault use="literal" name="fault1" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateElement">
+			<soap:operation
+				soapAction="http://www.example.org/periodictableadmin/updateElement" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+			<wsdl:fault name="fault1">
+				<soap:fault use="literal" name="fault1" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PeriodicTableAdmin">
+		<wsdl:port binding="tns:periodictableadminSOAP" name="PeriodicTableAdminPort">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

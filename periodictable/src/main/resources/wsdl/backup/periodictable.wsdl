@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.example.org/periodictable/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="periodictable"
+	targetNamespace="http://www.example.org/periodictable/"
+	xmlns:periodictablebase="http://www.example.org/periodictablebase">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.example.org/periodictable/" xmlns:base="http://www.example.org/periodictablebase">
+            <xsd:import schemaLocation="periodictablebase.xsd" namespace="http://www.example.org/periodictablebase"></xsd:import>
+            <xsd:element name="getAllElements">
+				<xsd:complexType>
+					<xsd:sequence>
+          </xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getAllElementsResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="elements" type="base:Element" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getElementByAtomicNumber">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="atomicNumber" type="xsd:int"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getElementByAtomicNumberResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="element" type="base:Element"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="getAllElementsRequest">
+		<wsdl:part element="tns:getAllElements" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="getAllElementsResponse">
+		<wsdl:part element="tns:getAllElementsResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="getElementByAtomicNumberRequest">
+		<wsdl:part name="parameters" element="tns:getElementByAtomicNumber"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getElementByAtomicNumberResponse">
+		<wsdl:part name="parameters" element="tns:getElementByAtomicNumberResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="PeriodicTable">
+		<wsdl:operation name="getAllElements">
+			<wsdl:input message="tns:getAllElementsRequest" />
+			<wsdl:output message="tns:getAllElementsResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="getElementByAtomicNumber">
+			<wsdl:input message="tns:getElementByAtomicNumberRequest"></wsdl:input>
+			<wsdl:output message="tns:getElementByAtomicNumberResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="periodictableSOAP" type="tns:PeriodicTable">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getAllElements">
+			<soap:operation
+				soapAction="http://www.example.org/periodictable/getAllElements" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getElementByAtomicNumber">
+			<soap:operation
+				soapAction="http://www.example.org/periodictable/getElementByAtomicNumber" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PeriodicTable">
+		<wsdl:port binding="tns:periodictableSOAP" name="PeriodicTableSOAP">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
