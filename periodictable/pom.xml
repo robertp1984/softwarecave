@@ -83,6 +83,12 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>4.0.1.Final</version>
+            <exclusions>
+                <exclusion>
+                <groupId>antlr</groupId>
+                <artifactId>antlr</artifactId>
+            </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>

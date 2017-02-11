@@ -19,17 +19,13 @@ public class PeriodicTableService {
     @PersistenceContext
     private EntityManager em;
     
-    @Autowired
-    private PeriodicTableSetup setup;
     
     public List<Element> getElements() {
-        setup.setupData();
         List<Element> list = em.createNamedQuery("findAllElements", Element.class).getResultList();
         return list;
     }
     
     public Element getElementByAtomicNumber(int number) throws ElementNotFoundException {
-        setup.setupData();
         try {
             Element elem = em.createNamedQuery("findElementByAtomicNumber", Element.class)
                     .setParameter("atomicNumber", number).getSingleResult();
@@ -66,14 +62,12 @@ public class PeriodicTableService {
     }
     
     public void addElementInternal(Element element) {
-        setup.setupData();
         logger.info("Adding element {}", element);
         em.persist(element);
         logger.info("Added element {} with ID={}", element, element.getId());
     }
 
     void addElementCategory(ElementCategory category) {
-        setup.setupData();
         logger.info("Adding element category {}", category);
         em.persist(category);
         logger.info("Added element category {} with ID={}", category, category.getId());

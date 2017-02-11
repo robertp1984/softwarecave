@@ -2,13 +2,23 @@
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence">
   <persistence-unit name="mainPU" transaction-type="JTA">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <jta-data-source>java:/orcl</jta-data-source>
     <class>com.example.periodictable.Element</class>
     <class>com.example.periodictable.ElementCategory</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
       <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform"/>
+      
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.create-source" value="script"/>
+      <property name="javax.persistence.schema-generation.create-script-source" value="dbscripts/create.sql"/>
+      <property name="javax.persistence.schema-generation.drop-source" value="script"/>
+      <property name="javax.persistence.schema-generation.drop-script-source" value="dbscripts/drop.sql"/>
+      
+      <property name="hibernate.hbm2ddl.import_files_sql_extractor" value="org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor" />
+      <property name="hibernate.show_sql" value="true"/>
+
     </properties>
   </persistence-unit>
 </persistence>
