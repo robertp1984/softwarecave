@@ -23,8 +23,6 @@
     <context:property-placeholder
         location="classpath:/properties/main.properties" />
 
-    <import resource="./spring-jpa.xml" />
-    <import resource="./spring-jta.xml" />
     <import resource="./spring-mvc.xml" />
     <import resource="./spring-beans.xml" />
 
